@@ -17,10 +17,13 @@ jobs:
       - name: Setup Arduino CLI
         uses: arduino/setup-arduino-cli@v2
 
-      - name: Install ESP32 Core
-        run: |
-          arduino-cli core update-index
-          arduino-cli core install esp32:esp32
+     - name: Install ESP32 Core & Libraries
+  run: |
+    arduino-cli core update-index
+    arduino-cli core install esp32:esp32
+
+    arduino-cli lib update-index
+    arduino-cli lib install "U8g2"
 
       - name: Compile Sketch
         run: |
